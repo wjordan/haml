@@ -55,7 +55,7 @@ module Haml
     end
 
     def precompiled_with_return_value
-      "#{precompiled};#{precompiled_method_return_value}"
+      "#{precompiled};#{precompiled_method_return_value}".dup
     end
 
     # The source code that is evaluated to produce the Haml document.
@@ -78,7 +78,7 @@ ensure
 @haml_buffer = @haml_buffer.upper if @haml_buffer
 end
 END
-      "#{preamble}#{locals_code(local_names)}#{precompiled}#{postamble}"
+      "#{preamble}#{locals_code(local_names)}#{precompiled}#{postamble}".dup
     end
 
     private
